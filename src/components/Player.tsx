@@ -65,7 +65,7 @@ export const Player: React.FC<PlayerProps> = ({
               color: 'black',
               backgroundColor: 'white',
               '&:hover': {
-                backgroundColor: 'rgba(255, 255, 255, 0.9)',
+                backgroundColor: 'rgba(255, 255, 255, 0.8)',
               },
 
             }

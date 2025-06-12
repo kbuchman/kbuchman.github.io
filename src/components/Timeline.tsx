@@ -22,7 +22,6 @@ export const Timeline: React.FC<TimelineProps> = ({
   React.useEffect(() => {
     const sps = Math.floor(maxStripes / totalSegments);
     setStripesPerSegment(sps);
-    console.log(sps);
     setStripeHeights(
       Array.from({
         length: sps * totalSegments
@@ -65,6 +64,9 @@ export const Timeline: React.FC<TimelineProps> = ({
                 : playedSegments.includes(i + 1)
                   ? 'black'
                   : 'white',
+            ':hover': {
+              cursor: 'pointer'
+            }
           }}
         />
       ))}

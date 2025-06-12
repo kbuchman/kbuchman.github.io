@@ -3,6 +3,7 @@ import React from 'react';
 import { Header } from './components/Header';
 import { RecordInfo } from './components/RecordInfo';
 import { Player } from './components/Player';
+import { AlbumList } from './components/AlbumList';
 
 
 const App: React.FC = () => (
@@ -34,17 +35,53 @@ const App: React.FC = () => (
         }}
       />
     </Stack>
-    <Stack flex={1}>
-      <Stack direction={'row'}>
-        <Paper
-        >
-          ALBUM LIST
-        </Paper>
-        <Paper
-        >
-          CONTENT
-        </Paper>
-      </Stack>
+    <Stack
+      direction={'row'}
+      sx={{
+        height: '100%',
+        overflowY: 'hidden'
+      }}
+    >
+      <AlbumList
+        albums={[
+          {
+            id: '1',
+            name: 'Album 1',
+            coverUrl: 'https://via.placeholder.com/150',
+            records: [
+              { id: '1', name: 'Record 1', sections: [] },
+              { id: '2', name: 'Record 2', sections: [] },
+              { id: '3', name: 'Record 3', sections: [] },
+            ],
+          },
+          {
+            id: '2',
+            name: 'Album 2',
+            coverUrl: 'https://via.placeholder.com/150',
+            records: [
+              { id: '1', name: 'Record 1', sections: [] },
+              { id: '2', name: 'Record 2', sections: [] },
+              { id: '3', name: 'Record 3', sections: [] },
+            ],
+          },
+          {
+            id: '3',
+            name: 'Album 3',
+            coverUrl: 'https://via.placeholder.com/150',
+            records: [
+              { id: '1', name: 'Record 1', sections: [] },
+              { id: '2', name: 'Record 2', sections: [] },
+              { id: '3', name: 'Record 3', sections: [] },
+            ],
+          },
+        ]}
+        onRecordPlay={(albumId, recordId) => console.log(albumId, recordId)}
+        selectedRecordId={'21'}
+      />
+      <Paper
+      >
+        CONTENT
+      </Paper>
     </Stack>
     <Paper
       sx={{
