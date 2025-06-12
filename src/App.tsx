@@ -2,6 +2,7 @@ import { Paper, Stack, Typography } from '@mui/material';
 import React from 'react';
 import { Header } from './components/Header';
 import { RecordInfo } from './components/RecordInfo';
+import { Player } from './components/Player';
 
 
 const App: React.FC = () => (
@@ -13,11 +14,10 @@ const App: React.FC = () => (
     }}
   >
     <Header />
-    <Stack direction={"row"}>
-      <Paper
-      >
+    <Stack direction={'row'}>
+      <Paper>
         <Typography
-          variant="h4"
+          variant={'h4'}
           sx={{
             whiteSpace: {
               xs: 'normal',
@@ -35,8 +35,7 @@ const App: React.FC = () => (
       />
     </Stack>
     <Stack flex={1}>
-
-      <Stack direction="row" flex={1}>
+      <Stack direction={'row'}>
         <Paper
         >
           ALBUM LIST
@@ -47,18 +46,32 @@ const App: React.FC = () => (
         </Paper>
       </Stack>
     </Stack>
-
-    <Paper />
-    {/* Footer */}
-    <Stack>
-      <Stack direction="row" width="100%">
-        <RecordInfo />
-        <Paper
-        >
-          PLAYER
-        </Paper>
-      </Stack>
-    </Stack >
+    <Paper
+      sx={{
+        backgroundColor: 'rgba(60, 10, 70, 0.6)',
+        ':hover': {
+          backgroundColor: 'rgba(60, 10, 70, 0.8)',
+        }
+      }}
+    />
+    <Stack
+      direction={'row'}
+      sx={{ width: '100%' }}
+    >
+      <RecordInfo />
+      <Player
+        timeline={{
+          currentSegmentNumber: 4,
+          totalSegments: 10,
+          onSegmentClick: (segmentNumber) => console.log(segmentNumber),
+        }}
+        onPlay={() => null}
+        onShuffle={() => null}
+        onRepeat={() => null}
+        onBackward={() => null}
+        onForward={() => null}
+      />
+    </Stack>
   </Stack >
 );
 

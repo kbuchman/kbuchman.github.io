@@ -14,7 +14,10 @@ export const RecordInfo: React.FC<RecordInfoProps> = ({
   recordAlbum
 }) => {
   return (
-    <Stack direction={'row'} width={'100%'}>
+    <Stack
+      direction={'row'}
+      width={'100%'}
+    >
       <Paper
         sx={{
           padding: 1,
@@ -24,7 +27,7 @@ export const RecordInfo: React.FC<RecordInfoProps> = ({
       >
         <img
           src={recordCoverUrl || defaultCover}
-          alt="Record Cover"
+          alt={'Record Cover'}
           style={{
             width: '100%',
             height: '100%',
@@ -39,7 +42,6 @@ export const RecordInfo: React.FC<RecordInfoProps> = ({
       <Paper
         sx={{
           width: '100%',
-          maxWidth: '256px',
           minWidth: 'min-content',
           padding: 2,
           alignItems: 'center',

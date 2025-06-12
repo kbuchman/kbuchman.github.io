@@ -41,14 +41,32 @@ export const Header: React.FC = () => {
             justifyContent: 'center',
             ':hover': {
               cursor: 'pointer',
-            }
+              backgroundColor: 'rgba(60, 10, 70, 0.8)',
+            },
+            backgroundColor: 'rgba(60, 10, 70, 0.6)'
           }}
         >
           CONTACT
         </Paper>
         <Paper
           elevation={3}
-          sx={{ width: '100%' }}
+          sx={{
+            width: '100%',
+            backgroundColor: 'rgba(60, 10, 70, 0.6)',
+            ':hover': {
+              backgroundColor: 'rgba(60, 10, 70, 0.8)',
+            }
+          }}
+        />
+        <Paper
+          elevation={3}
+          sx={{
+            width: '50%',
+            backgroundColor: 'rgba(60, 10, 70, 0.6)',
+            ':hover': {
+              backgroundColor: 'rgba(60, 10, 70, 0.8)',
+            }
+          }}
         />
         <Paper
           elevation={3}
@@ -56,6 +74,10 @@ export const Header: React.FC = () => {
             width: 'min-content',
             alignItems: 'center',
             justifyContent: 'center',
+            backgroundColor: 'rgba(60, 10, 70, 0.6)',
+            ':hover': {
+              backgroundColor: 'rgba(60, 10, 70, 0.8)',
+            }
           }}
         >
           EN

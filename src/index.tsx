@@ -12,15 +12,15 @@ const theme = createTheme({
       },
       styleOverrides: {
         root: {
-          backgroundColor: 'rgba(106, 14, 146, 0.5)',
+          backgroundColor: 'rgba(100, 15, 150, 0.5)',
           padding: '4px',
           paddingLeft: '16px',
           paddingRight: '16px',
           borderRadius: '16px',
           color: 'white',
           transition: 'transform 0.3s ease-in-out, background-color 0.6s ease-in-out',
-          ":hover": {
-            backgroundColor: 'rgba(106, 14, 146, 0.7)',
+          ':hover': {
+            backgroundColor: 'rgba(100, 15, 150, 0.7)',
             transform: 'scale(1.005)',
             transition: 'transform 0.3s ease-in-out, background-color 0.6s ease-in-out',
           },
