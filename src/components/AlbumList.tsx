@@ -1,4 +1,15 @@
-import { Box, Collapse, IconButton, List, ListItem, ListItemButton, ListItemText, Paper, Stack, Typography } from '@mui/material';
+import {
+  Box,
+  Collapse,
+  IconButton,
+  List,
+  ListItem,
+  ListItemButton,
+  ListItemText,
+  Paper,
+  Stack,
+  Typography
+} from '@mui/material';
 import React from 'react';
 import { Album } from '../data-model.interface';
 import defaultCover from '../assets/default_cover.svg';
@@ -26,14 +37,19 @@ export const AlbumList: React.FC<AlbumListProps> = ({
         width: '35%',
         height: '100%',
         padding: 2,
-        overflowY: 'auto'
+        paddingRight: 1,
+        overflowY: 'hidden'
       }}
     >
       <List
         sx={{
           width: '100%',
           height: '100%',
-          padding: 0
+          padding: 0,
+          paddingRight: 1,
+          overflowY: 'auto',
+          minHeight: 0,
+          flex: 1
         }}
       >
         {albums.map((album) => (
@@ -52,7 +68,7 @@ export const AlbumList: React.FC<AlbumListProps> = ({
               }}
             >
               <img
-                src={/* album.coverUrl ||  */defaultCover}
+                src={album.coverUrl || defaultCover}
                 alt={album.name}
                 style={{
                   width: '48px',

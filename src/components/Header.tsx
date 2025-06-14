@@ -32,7 +32,6 @@ export const Header: React.FC = () => {
       <Stack
         direction={'row'}
         gap={2}
-        sx={{ paddingBottom: 1 }}
       >
         <Paper
           onClick={handleDialogOpen}

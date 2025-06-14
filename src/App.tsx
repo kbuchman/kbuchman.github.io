@@ -1,4 +1,4 @@
-import { Box, Paper, Stack, Typography } from '@mui/material';
+import { Paper, Stack, Typography } from '@mui/material';
 import React from 'react';
 import { Header } from './components/Header';
 import { RecordInfo } from './components/RecordInfo';
@@ -12,18 +12,11 @@ const App: React.FC = () => (
     sx={{
       height: '100%',
       width: '100%',
-      padding: 2,
-      gap: 0
+      padding: 2
     }}
   >
     <Header />
-    <Stack
-      direction={'row'}
-      sx={{
-        paddingTop: 1,
-        paddingBottom: 1
-      }}
-    >
+    <Stack direction={'row'}>
       <Paper>
         <Typography
           variant={'h4'}
@@ -43,9 +36,7 @@ const App: React.FC = () => (
       direction={'row'}
       sx={{
         height: '100%',
-        overflowY: 'hidden',
-        paddingTop: 1,
-        paddingBottom: 1
+        maxHeight: 'calc(100vh - 298px)'
       }}
     >
       <AlbumList
@@ -86,6 +77,7 @@ const App: React.FC = () => (
       />
       <ContentDisplay
         onStartPlay={() => console.log("hi")}
+        section={<Paper sx={{ width: '100%' }}>dupa</Paper>}
       />
     </Stack>
     <Paper
@@ -93,17 +85,12 @@ const App: React.FC = () => (
         backgroundColor: 'rgba(60, 10, 70, 0.6)',
         ':hover': {
           backgroundColor: 'rgba(60, 10, 70, 0.8)',
-        },
-        marginTop: 1,
-        marginBottom: 1
+        }
       }}
     />
     <Stack
       direction={'row'}
-      sx={{
-        width: '100%',
-        paddingTop: 1
-      }}
+      sx={{ width: '100%' }}
     >
       <RecordInfo />
       <Player
