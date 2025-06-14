@@ -1,21 +1,29 @@
-import { Paper, Stack, Typography } from '@mui/material';
+import { Box, Paper, Stack, Typography } from '@mui/material';
 import React from 'react';
 import { Header } from './components/Header';
 import { RecordInfo } from './components/RecordInfo';
 import { Player } from './components/Player';
 import { AlbumList } from './components/AlbumList';
+import { ContentDisplay } from './components/ContentDisplay';
 
 
 const App: React.FC = () => (
   <Stack
     sx={{
-      height: '100vh',
-      width: '100vw',
+      height: '100%',
+      width: '100%',
       padding: 2,
+      gap: 0
     }}
   >
     <Header />
-    <Stack direction={'row'}>
+    <Stack
+      direction={'row'}
+      sx={{
+        paddingTop: 1,
+        paddingBottom: 1
+      }}
+    >
       <Paper>
         <Typography
           variant={'h4'}
@@ -29,17 +37,15 @@ const App: React.FC = () => (
           KAROL BUCHMAN
         </Typography>
       </Paper>
-      <Paper
-        sx={{
-          width: '100%',
-        }}
-      />
+      <Paper sx={{ width: '100%' }} />
     </Stack>
     <Stack
       direction={'row'}
       sx={{
         height: '100%',
-        overflowY: 'hidden'
+        overflowY: 'hidden',
+        paddingTop: 1,
+        paddingBottom: 1
       }}
     >
       <AlbumList
@@ -78,22 +84,26 @@ const App: React.FC = () => (
         onRecordPlay={(albumId, recordId) => console.log(albumId, recordId)}
         selectedRecordId={'21'}
       />
-      <Paper
-      >
-        CONTENT
-      </Paper>
+      <ContentDisplay
+        onStartPlay={() => console.log("hi")}
+      />
     </Stack>
     <Paper
       sx={{
         backgroundColor: 'rgba(60, 10, 70, 0.6)',
         ':hover': {
           backgroundColor: 'rgba(60, 10, 70, 0.8)',
-        }
+        },
+        marginTop: 1,
+        marginBottom: 1
       }}
     />
     <Stack
       direction={'row'}
-      sx={{ width: '100%' }}
+      sx={{
+        width: '100%',
+        paddingTop: 1
+      }}
     >
       <RecordInfo />
       <Player

@@ -1,7 +1,11 @@
-body {
+html,
+body,
+#root {
   animation: gradientShift 30s ease-in-out infinite;
   background: radial-gradient(circle, #A012DE 8%, #43B7A5 74%, #5EF753 100%);
   background-size: 200% 200%;
+  height: 100%;
+  width: 100%;
 }
 
 ::-webkit-scrollbar {

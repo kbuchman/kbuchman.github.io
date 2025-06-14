@@ -22,10 +22,11 @@ export const AlbumList: React.FC<AlbumListProps> = ({
   return (
     <Paper
       sx={{
-        width: '40%',
+        minWidth: '300px',
+        width: '35%',
         height: '100%',
-        overflowY: 'auto',
-        padding: 2
+        padding: 2,
+        overflowY: 'auto'
       }}
     >
       <List
