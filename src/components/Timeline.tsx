@@ -2,12 +2,14 @@ import { Box, Stack } from '@mui/material';
 import React from 'react';
 
 export interface TimelineProps {
+  currentRecordId: string;
   currentSegmentNumber: number;
   totalSegments: number;
   onSegmentClick: (segmentNumber: number) => void;
 };
 
 export const Timeline: React.FC<TimelineProps> = ({
+  currentRecordId,
   currentSegmentNumber,
   totalSegments,
   onSegmentClick
@@ -20,6 +22,8 @@ export const Timeline: React.FC<TimelineProps> = ({
   const maxStripes = 48;
 
   React.useEffect(() => {
+    if (totalSegments < 1) return;
+
     const sps = Math.floor(maxStripes / totalSegments);
     setStripesPerSegment(sps);
     setStripeHeights(
@@ -27,11 +31,11 @@ export const Timeline: React.FC<TimelineProps> = ({
         length: sps * totalSegments
       }, () => Math.floor(Math.random() * 90) + 30)
     );
-  }, [totalSegments]);
+  }, [totalSegments, currentRecordId]);
 
   React.useEffect(() => {
     setPlayedSegments(Array.from({
-      length: stripesPerSegment * currentSegmentNumber
+      length: stripesPerSegment * (currentSegmentNumber + 1)
     }, (_, i) => i + 1));
   }, [stripesPerSegment, currentSegmentNumber]);
 

@@ -4,12 +4,12 @@ import PlayArrowIcon from '@mui/icons-material/PlayArrow'
 
 export interface ContentDisplayProps {
     onStartPlay: () => void;
-    section?: any;
+    segment?: any;
 };
 
 export const ContentDisplay: React.FC<ContentDisplayProps> = ({
     onStartPlay,
-    section
+    segment
 }) => {
 
     const welcomePage = () => {
@@ -70,7 +70,7 @@ export const ContentDisplay: React.FC<ContentDisplayProps> = ({
                 padding: 2
             }}
         >
-            {section ?? welcomePage()}
+            {segment ?? welcomePage()}
         </Paper>
     );
 };

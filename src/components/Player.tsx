@@ -9,7 +9,8 @@ import { Timeline, TimelineProps } from './Timeline';
 
 export interface PlayerProps {
   timeline: TimelineProps;
-  onPlay: (status: boolean) => void;
+  played: boolean;
+  setPlayed: (value: React.SetStateAction<boolean>) => void;
   onShuffle: (status: boolean) => void;
   onRepeat: (status: boolean) => void;
   onBackward: () => void;
@@ -18,7 +19,8 @@ export interface PlayerProps {
 
 export const Player: React.FC<PlayerProps> = ({
   timeline,
-  onPlay,
+  played,
+  setPlayed,
   onShuffle,
   onRepeat,
   onBackward,
@@ -26,21 +28,15 @@ export const Player: React.FC<PlayerProps> = ({
 }) => {
   const [shuffled, setShuffled] = React.useState(false);
   const [repeated, setRepeated] = React.useState(false);
-  const [paused, setPaused] = React.useState(false);
 
   const handleShuffle = () => {
     setShuffled(!shuffled);
-    onShuffle(shuffled);
+    onShuffle(!shuffled);
   };
 
   const handleRepeat = () => {
     setRepeated(!repeated);
-    onRepeat(repeated);
-  };
-
-  const handlePlayPause = () => {
-    setPaused(!paused);
-    onPlay(!paused);
+    onRepeat(!repeated);
   };
 
   return (
@@ -83,8 +79,8 @@ export const Player: React.FC<PlayerProps> = ({
           >
             <ReplyAllIcon />
           </IconButton>
-          <IconButton onClick={() => handlePlayPause()}>
-            {paused ? <PauseIcon /> : <PlayArrowIcon />}
+          <IconButton onClick={() => setPlayed(prev => !prev)}>
+            {played ? <PauseIcon /> : <PlayArrowIcon />}
           </IconButton>
           <IconButton
             onClick={() => onForward()}

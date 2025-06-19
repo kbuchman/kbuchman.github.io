@@ -1,12 +1,18 @@
+export interface Segment {
+    duration: number; // in seconds
+    segment: any;
+}
+
 export interface Record {
     id: string;
+    albumId: string;
     name: string;
-    sections: React.FC[];
+    segments: Segment[];
 }
 
 export interface Album {
     id: string;
     name: string;
     coverUrl: string;
-    records: Record[];
+    recordsIds: string[];
 }

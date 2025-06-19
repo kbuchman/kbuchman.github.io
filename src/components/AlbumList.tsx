@@ -16,6 +16,7 @@ import defaultCover from '../assets/default_cover.svg';
 import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 import ExpandLess from '@mui/icons-material/ExpandLess'
 import ExpandMore from '@mui/icons-material/ExpandMore'
+import { RECORDS } from '../content/all-records';
 
 export interface AlbumListProps {
   albums: Album[];
@@ -137,54 +138,60 @@ export const AlbumList: React.FC<AlbumListProps> = ({
                     Title
                   </Typography>
                 </ListItem>
-                {album.records.map((record, idx) => (
-                  <ListItemButton
-                    key={album.id + record.id}
-                    alignItems={'flex-start'}
-                    sx={{
-                      padding: 0,
-                      alignItems: 'center',
-                      borderRadius: '16px',
-                      marginBottom: 1,
-                      backgroundColor:
-                        album.id + record.id === selectedRecordId
-                          ? 'rgba(100, 15, 150, 0.5)'
-                          : 'inherit',
-                      ':hover': {
+                {album.recordsIds.map((recordId, idx) => {
+                  const record = RECORDS.find(r =>
+                    r.albumId === album.id && r.id === recordId
+                  );
+
+                  return (
+                    <ListItemButton
+                      key={album.id + record?.id}
+                      alignItems={'flex-start'}
+                      sx={{
+                        padding: 0,
+                        alignItems: 'center',
+                        borderRadius: '16px',
+                        marginBottom: 1,
                         backgroundColor:
-                          album.id + record.id === selectedRecordId
-                            ? 'rgba(100, 15, 150, 0.7)'
-                            : 'inherit'
-                      }
-                    }}
-                  >
-                    <Typography
-                      sx={{
-                        width: '32px',
-                        paddingLeft: 1,
-                        paddingRight: 2
-                      }}
-                    >
-                      {`${idx + 1}.`}
-                    </Typography>
-                    <Typography sx={{ width: '100%' }}>
-                      {record.name}
-                    </Typography>
-                    <IconButton
-                      onClick={() => onRecordPlay(album.id, record.id)}
-                      size={'small'}
-                      sx={{
-                        color: 'black',
-                        backgroundColor: 'white',
-                        '&:hover': {
-                          backgroundColor: 'rgba(255, 255, 255, 0.8)',
+                          album.id + record?.id === selectedRecordId
+                            ? 'rgba(100, 15, 150, 0.5)'
+                            : 'inherit',
+                        ':hover': {
+                          backgroundColor:
+                            album.id + record?.id === selectedRecordId
+                              ? 'rgba(100, 15, 150, 0.7)'
+                              : 'inherit'
                         }
                       }}
                     >
-                      <PlayArrowIcon />
-                    </IconButton>
-                  </ListItemButton>
-                ))}
+                      <Typography
+                        sx={{
+                          width: '32px',
+                          paddingLeft: 1,
+                          paddingRight: 2
+                        }}
+                      >
+                        {`${idx + 1}.`}
+                      </Typography>
+                      <Typography sx={{ width: '100%' }}>
+                        {record?.name}
+                      </Typography>
+                      <IconButton
+                        onClick={() => onRecordPlay(album.id, record?.id ?? '')}
+                        size={'small'}
+                        sx={{
+                          color: 'black',
+                          backgroundColor: 'white',
+                          '&:hover': {
+                            backgroundColor: 'rgba(255, 255, 255, 0.8)',
+                          }
+                        }}
+                      >
+                        <PlayArrowIcon />
+                      </IconButton>
+                    </ListItemButton>
+                  );
+                })}
               </List>
             </Collapse>
           </React.Fragment>
