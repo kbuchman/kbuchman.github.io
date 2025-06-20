@@ -5,6 +5,20 @@ import App from './App';
 import { createTheme, CssBaseline, ThemeProvider } from '@mui/material';
 
 const theme = createTheme({
+  typography: {
+    fontFamily: [
+      'Lexend Exa',
+      'Roboto',
+      'sans-serif',
+    ].join(','),
+    fontWeightRegular: 300,
+    h1: { fontWeight: 300 },
+    h2: { fontWeight: 300 },
+    h3: { fontWeight: 300 },
+    h4: { fontWeight: 300 },
+    h5: { fontWeight: 300 },
+    h6: { fontWeight: 300 },
+  },
   components: {
     MuiPaper: {
       defaultProps: {

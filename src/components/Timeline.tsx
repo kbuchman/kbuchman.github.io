@@ -19,7 +19,7 @@ export const Timeline: React.FC<TimelineProps> = ({
   const [hoveredSegment, setHoveredSegment] = React.useState<number | null>(null);
   const [stripeHeights, setStripeHeights] = React.useState<number[]>([]);
 
-  const maxStripes = 48;
+  const maxStripes = 64;
 
   React.useEffect(() => {
     if (totalSegments < 1) return;
@@ -42,37 +42,58 @@ export const Timeline: React.FC<TimelineProps> = ({
   return (
     <Stack
       direction={'row'}
-      gap={'1px'}
       alignItems={'center'}
-      justifyContent={'space-between'}
+      gap={0}
       sx={{
         width: '100%',
         height: '100%',
         position: 'relative'
       }}
     >
-      {Array.from({ length: stripesPerSegment * totalSegments }, (_, i) => (
+      {Array.from({ length: totalSegments }, (_, segmentIdx) => (
         <Box
-          key={i}
-          onMouseEnter={() => setHoveredSegment(Math.floor(i / stripesPerSegment))}
+          key={segmentIdx}
+          onMouseEnter={() => setHoveredSegment(segmentIdx)}
           onMouseLeave={() => setHoveredSegment(null)}
-          onClick={() => onSegmentClick(Math.floor(i / stripesPerSegment))}
+          onClick={() => onSegmentClick(segmentIdx)}
           sx={{
-            padding: 0,
-            borderRadius: '8px',
-            width: `${100 / (stripesPerSegment * totalSegments * 2)}%`,
-            height: `${stripeHeights[i]}%`,
-            backgroundColor:
-              hoveredSegment === Math.floor(i / stripesPerSegment)
-                ? 'rgba(60, 10, 70, 0.6)'
-                : playedSegments.includes(i + 1)
-                  ? 'black'
-                  : 'white',
-            ':hover': {
-              cursor: 'pointer'
-            }
+            display: 'flex',
+            flexDirection: 'row',
+            alignItems: 'center',
+            justifyContent: 'space-around',
+            flex: 1,
+            height: '100%',
+            gap: '1px',
+            cursor: 'pointer',
+            zIndex: 1
           }}
-        />
+        >
+          {Array.from({ length: stripesPerSegment }, (_, stripeIdx) => {
+            const globalIdx = segmentIdx * stripesPerSegment + stripeIdx;
+            return (
+              <Box
+                key={stripeIdx}
+                sx={{
+                  padding: 0,
+                  borderRadius: '8px',
+                  width: `${100 / (stripesPerSegment * 2)}%`,
+                  height: `${stripeHeights[globalIdx]}%`,
+                  backgroundColor:
+                    hoveredSegment === segmentIdx
+                      ? 'rgba(60, 10, 70, 0.6)'
+                      : playedSegments.includes(globalIdx + 1)
+                        ? 'black'
+                        : 'white',
+                  transition: 'transform 0.1s ease-in-out, background 0.3s ease-in-out',
+                  ':hover': {
+                    transform: 'scale(1.5)',
+                    transition: 'transform 0.05s ease-in-out',
+                  }
+                }}
+              />
+            );
+          })}
+        </Box>
       ))}
       <Box
         sx={{
@@ -80,7 +101,7 @@ export const Timeline: React.FC<TimelineProps> = ({
           height: '4px',
           position: 'absolute',
           borderRadius: '8px',
-          zIndex: -1,
+          zIndex: 0,
           backgroundColor: 'rgba(255, 255, 255, 0.2)',
         }}
       />

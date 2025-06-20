@@ -14,6 +14,16 @@ export const ABOUT_RECORDS: Record[] = [
         id: 'me',
         albumId: 'about',
         name: 'ME',
-        segments: []
+        segments: [
+            {
+                duration: 5,
+                segment: <div>HI</div>
+            },
+            {
+                duration: 5,
+                segment: <div>HI</div>
+            }
+
+        ]
     }
 ];

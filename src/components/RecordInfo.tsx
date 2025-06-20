@@ -54,7 +54,7 @@ export const RecordInfo: React.FC<RecordInfoProps> = ({
         >
           <Typography
             variant={'h5'}
-            fontWeight={'bold'}
+            fontWeight={400}
           >
             {recordTitle || 'HI'}
           </Typography>

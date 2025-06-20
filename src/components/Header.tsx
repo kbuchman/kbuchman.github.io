@@ -24,7 +24,17 @@ export const Header: React.FC = () => {
     rel: 'noopener',
     color: 'inherit' as const,
     underline: 'none' as 'none' | 'hover' | 'always' | undefined,
-    sx: { display: 'flex', alignItems: 'center', gap: 1 }
+    sx: {
+      display: 'flex',
+      alignItems: 'center',
+      padding: 1,
+      borderRadius: '8px',
+      gap: 1,
+      ':hover': {
+        backgroundColor: 'rgba(60, 10, 70, 0.6)'
+      },
+      transition: 'background 0.3s ease-in-out'
+    }
   };
 
   return (
@@ -100,8 +110,8 @@ export const Header: React.FC = () => {
         </IconButton>
         <Stack
           direction={'column'}
-          gap={1}
-          sx={{ padding: 1 }}
+          gap={0}
+          sx={{ padding: 2 }}
         >
           <Link
             href={linkedInUrl}

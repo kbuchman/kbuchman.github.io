@@ -4,7 +4,7 @@ import work_cover from '../assets/work_cover.svg';
 
 export const WORK: Album = {
     id: 'work',
-    name: 'Work expirience',
+    name: 'Work experience',
     coverUrl: work_cover,
     recordsIds: ['abb']
 }

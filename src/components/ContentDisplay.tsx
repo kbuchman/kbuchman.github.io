@@ -45,8 +45,9 @@ export const ContentDisplay: React.FC<ContentDisplayProps> = ({
                             color: 'black',
                             backgroundColor: 'white',
                             '&:hover': {
-                                backgroundColor: 'rgba(255, 255, 255, 0.8)',
+                                backgroundColor: 'rgba(255, 255, 255, 0.6)',
                             },
+                            transition: 'background 0.3s ease-in-out',
                             height: '200px',
                             width: '200px',
                             '.MuiSvgIcon-root': {

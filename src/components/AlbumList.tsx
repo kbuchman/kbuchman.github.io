@@ -96,7 +96,7 @@ export const AlbumList: React.FC<AlbumListProps> = ({
                 <Box
                   sx={{
                     width: '100%',
-                    height: '4px',
+                    height: '2px',
                     borderRadius: '8px',
                     backgroundColor: 'white',
                   }}
@@ -131,6 +131,7 @@ export const AlbumList: React.FC<AlbumListProps> = ({
                       paddingLeft: 1,
                       paddingRight: 2
                     }}
+                    fontWeight={400}
                   >
                     #
                   </Typography>
@@ -183,8 +184,9 @@ export const AlbumList: React.FC<AlbumListProps> = ({
                           color: 'black',
                           backgroundColor: 'white',
                           '&:hover': {
-                            backgroundColor: 'rgba(255, 255, 255, 0.8)',
-                          }
+                            backgroundColor: 'rgba(255, 255, 255, 0.6)',
+                          },
+                          transition: 'background 0.3s ease-in-out'
                         }}
                       >
                         <PlayArrowIcon />

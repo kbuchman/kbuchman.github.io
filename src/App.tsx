@@ -40,6 +40,7 @@ const App: React.FC = () => {
         <Paper>
           <Typography
             variant={'h4'}
+            fontWeight={400}
             sx={{
               whiteSpace: {
                 xs: 'normal',
