@@ -31,6 +31,7 @@ export const useRecordHandler = () => {
     };
 
     const onRecordPlay = (albumId: string, recordId: string) => {
+        if (currentQueue.length === 0) resetQueue();
         setPlayed(true);
         setCurrentRecord(findRecord(albumId + recordId));
     };
