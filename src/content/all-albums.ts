@@ -9,6 +9,6 @@ export const ALBUMS: Album[] = [
     ABOUT,
     EDUCATION,
     WORK,
-    PROJECTS,
+    //PROJECTS,
     SIDE
 ];

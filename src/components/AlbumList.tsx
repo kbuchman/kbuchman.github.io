@@ -35,7 +35,7 @@ export const AlbumList: React.FC<AlbumListProps> = ({
     <Paper
       sx={{
         minWidth: '300px',
-        width: '35%',
+        width: '40%',
         height: '100%',
         padding: 2,
         paddingRight: 1,

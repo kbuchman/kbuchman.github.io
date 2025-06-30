@@ -71,7 +71,18 @@ export const ContentDisplay: React.FC<ContentDisplayProps> = ({
                 padding: 2
             }}
         >
-            {segment ?? welcomePage()}
+            <Stack
+                direction={'row'}
+                justifyContent={'space-evenly'}
+                alignItems={'center'}
+                sx={{
+                    width: '100%',
+                    height: '100%',
+                }}
+            >
+
+                {segment ?? welcomePage()}
+            </Stack>
         </Paper>
     );
 };

@@ -9,6 +9,6 @@ export const RECORDS: Record[] = [
     ...ABOUT_RECORDS,
     ...EDUCATION_RECORDS,
     ...WORK_RECORDS,
-    ...PROJECTS_RECORDS,
+    //...PROJECTS_RECORDS,
     ...SIDE_RECORDS
 ];
